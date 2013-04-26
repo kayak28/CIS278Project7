@@ -11,7 +11,7 @@ DVD::DVD(string titl,string rate, char stype)
 {
 	setTitle(titl);
 	setRating(rate);
-	 setScreen(stype);
+	setScreen(stype);
 }
 void DVD::setRating(string rate)
 {
