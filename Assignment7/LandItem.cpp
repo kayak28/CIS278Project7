@@ -48,12 +48,12 @@ int LandItem::getBNumber() const
 {
 	return borrowNumber;
 }
-
+/*
 void LandItem::printAll(ostream& )
 {
 	//no deff here
 }
-
+*/
 ostream& operator<<(ostream& out, const LandItem& obj)
 {
 	out << "Title: " << obj.getTitle() << "\n"

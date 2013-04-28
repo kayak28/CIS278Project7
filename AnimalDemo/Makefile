@@ -1,4 +1,4 @@
-//Makefile
+
 
 run : Cat.o main.o Dog.o Animal.o
 	g++ -o run Cat.o main.o Dog.o Animal.o
