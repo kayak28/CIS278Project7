@@ -12,7 +12,8 @@ int main()
 	Dog dog("Ruby");
 
 	//Nomal way to activate a function in super class
-	//aobj.displayName(cout)
+	//aobj.displayName(cout) hbjkjjj
+	//
 	//cout << endl;
 	
 	//{CAT ver}

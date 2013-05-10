@@ -28,7 +28,7 @@ void LandItem::setBNumber(int bNumber)
 	borrowNumber = bNumber;
 }
 void LandItem::setBorrowed(bool bstatus)
-{
+{//if true, meaning avalible 
 	borrowed = bstatus;
 }
 

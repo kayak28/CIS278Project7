@@ -18,7 +18,7 @@ class LandItem
 		char getMedium() const;
 		int getBNumber() const;
 
-		virtual void printAll(ostream& out) =0;//=0 means pure vartual function
+		virtual void printAll(ostream& out) = 0;//=0 means pure vartual function
 		//if a class has at least one pure vartual function, the class is absturct class.
 		//if only "vartual", we can define and impliment it to reuse.
 

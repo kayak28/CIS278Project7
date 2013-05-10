@@ -1,6 +1,8 @@
 //Book
-
-class Book:public LandItem 
+#include "LandItem.h"
+#include <string>
+using namespace std;
+class  Book: public LandItem 
 {
 	private:
 		string author;
@@ -12,5 +14,7 @@ class Book:public LandItem
 		void setAuthor(string auth);
 		void setCover(char type);
 		string getAuthor() const;
+		char getCover() const;
+		void printAll(ostream& out);
 
 };

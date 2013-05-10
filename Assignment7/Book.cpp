@@ -8,9 +8,9 @@ Book::Book()
 	author = " ";
 	coverType = ' ';
 }
-Book::Book(string titl, string auth, char cover)
+Book::Book(string titl, string auth, char cover):LandItem(titl, 'B')
 {
-	title = titl;
+	//title = setTitle(titl);
 	author = auth;
 	coverType = cover;
 }
@@ -22,23 +22,23 @@ void Book::setCover(char type)
 {
 	coverType = type;
 }
-string Book::getAuthor()
+string Book::getAuthor() const
 {
 	return author;
 }
-char Book::getCover()
+char Book::getCover() const
 {
 	return coverType;
 }
-void Book::printAll(ostream& )
+void Book::printAll(ostream& out)
 {
-	cout << "Title: " << this->getTitle() << "\n" 
+	 out << "Title: " << this->getTitle() << "\n" 
 		 << "Author: " << this->getAuthor() << "\n" 
 		 << "MediumType: " << this->getMedium() << "\n"
 		 << "coverType: " << this->getCover() << "\n"
 		 << "Avairable: " << this->getBorrowed() << "\n";
 	if(this->getBorrowed() == true)
 	{
-		cout << "Borrower: " << this->getBNumber() << "\n";
+		out << "Borrower: " << this->getBNumber() << "\n";
 	}
 }

@@ -1,6 +1,6 @@
-#include "LandItem.h"
+//#include "LandItem.h"
 #include <iostream>
-
+//#include <string>
 using namespace std;
 
 class DVD: public LandItem
@@ -12,7 +12,7 @@ class DVD: public LandItem
 		void setScreen(char type);
 		string getRating()const;
 		char getScreenType()const;
-		void printAll(ostream& );
+		void printAll(ostream& out); 
 	private: 
 		string rating;
 		char screenType;
