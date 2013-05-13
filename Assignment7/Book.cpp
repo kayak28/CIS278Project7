@@ -35,8 +35,20 @@ void Book::printAll(ostream& out)
 	 out << "Title: " << this->getTitle() << "\n" 
 		 << "Author: " << this->getAuthor() << "\n" 
 		 << "MediumType: " << this->getMedium() << "\n"
-		 << "coverType: " << this->getCover() << "\n"
-		 << "Avairable: " << this->getBorrowed() << "\n";
+		 << "coverType: " << this->getCover() << "\n";
+	if(this->getBorrowed() == 0)
+	{//false
+	 	out << "Avairable: " << "Currently Avairable\n";
+	}
+	else if(this->getBorrowed() == 1)
+	{
+	 	out << "Avairable: " << this->getBorrowed() << "Not Avairable\n";
+	}
+	else
+	{
+		out << "For Borrowing, invalid number is entered!!";
+	}
+		 
 	if(this->getBorrowed() == true)
 	{
 		out << "Borrower: " << this->getBNumber() << "\n";

@@ -38,6 +38,7 @@ int main()
 			 << "9:Show all information\n"
 			 << "10:Goood bye\n";
 		cin >> action;
+		cin.ignore(50, '\n');
 		if(action == 1)
 		{
 				//make a new books instance
@@ -93,7 +94,7 @@ int main()
 				getline(cin, rating);
 				cout << "\nIs the DVD W-type? Yes = 0, No = 1";
 				cin >> answer;
-
+				cin.ignore(50, '\n');
 				if (answer == 0)
 				{
 					stype = 'W';
@@ -130,6 +131,7 @@ int main()
 			cout << "Enter 1 to borrow a DVD\n";
 			cout <<"Enter 2 to borrow a book\n";
 			cin >> borrow; 
+			cin.ignore(50, '\n');
 			cout << "\n";
 
 			if(borrow == 1)
@@ -144,6 +146,7 @@ int main()
 				{
 					if(dvds[i].getTitle() == serchedTitle)
 					{
+						cout << "in if statement" ;
 						thereIs = true;
 						//cout << dvds[i]->getTitle << "does not exisist.";
 					}
@@ -154,6 +157,7 @@ int main()
 					{//true = avaiable
 						cout << "Enter your ID number\n";
 						cin >> id;
+						cin.ignore(50, '\n');
 						dvds[i].setBorrowed(false);
 						dvds[i].setBNumber(id);
 						cout << "have a fun with your dvd!\n";
@@ -173,6 +177,7 @@ int main()
 				{
 					if(books[index].getTitle() == borrowedBook)
 					{
+						cout << "find the book!!";
 						thereIs = true;
 					}
 				}
@@ -182,6 +187,7 @@ int main()
 					{//ture = avaialbe
 						cout << "Enter your ID number\n";
 						cin >> id;
+						cin.ignore(50, '\n');
 						books[index].setBorrowed(false);
 						books[index].setBNumber(id);
 						cout << "hava fun with your book!!\n";
@@ -196,7 +202,7 @@ int main()
 			for(int n = 0; n < bookCapacity; n++)
 			{
 				books[n].printAll(cout);
-				cout << "\n" << "\n";
+				cout << "\n";
 			}
 			cout <<"\n";
 		}
@@ -217,6 +223,7 @@ int main()
 			cout << "Type 1 to search movies\n";
 			cout << "Type 2 to search books\n";
 			cin >> choice;
+			cin.ignore(50, '\n');
 			if(choice == 1)
 			{//looking for movies
 				cout << "Enter title of dvd that you are looking for?\n";
