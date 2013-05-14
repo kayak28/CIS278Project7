@@ -4,14 +4,14 @@ LandItem::LandItem()
 {
 	title = " ";
 	mediumType = ' ';
-	borrowed = false;
+	borrowed = true;
 	borrowNumber = 0;
 }
 LandItem::LandItem(string theTitle, char med)
 {
 	title = theTitle;
 	mediumType = med;
-	borrowed = false;
+	borrowed = true;
 	borrowNumber = 0;
 }
 

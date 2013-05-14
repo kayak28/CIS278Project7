@@ -7,6 +7,7 @@ Book::Book()
 {
 	author = " ";
 	coverType = ' ';
+
 }
 Book::Book(string titl, string auth, char cover):LandItem(titl, 'B')
 {
@@ -38,11 +39,11 @@ void Book::printAll(ostream& out)
 		 << "coverType: " << this->getCover() << "\n";
 	if(this->getBorrowed() == 0)
 	{//false
-	 	out << "Avairable: " << "Currently Avairable\n";
+	 	out << "Avairable: " << "Not Avairable\n";
 	}
 	else if(this->getBorrowed() == 1)
-	{
-	 	out << "Avairable: " << this->getBorrowed() << "Not Avairable\n";
+	{//ture
+	 	out << "Avairable: " << this->getBorrowed() << "Avairable\n";
 	}
 	else
 	{

@@ -79,6 +79,7 @@ int main()
 				}
 				books[bookitems] = book;
 				bookitems++;
+
 			
 		} //action == 1 
 		else if(action == 2)
@@ -142,18 +143,13 @@ int main()
 				getline(cin, serchedTitle);
 				int i;
 				int id = 0;
+				cout << "before searching;\n";
 				for(i = 0; i < dvdCapacity; i++)
 				{
+					cout << "inside for\n";
 					if(dvds[i].getTitle() == serchedTitle)
 					{
-						cout << "in if statement" ;
-						thereIs = true;
-						//cout << dvds[i]->getTitle << "does not exisist.";
-					}
-				}
-				if(thereIs)
-				{
-					if(dvds[i].getBorrowed())
+						if(dvds[i].getBorrowed())
 					{//true = avaiable
 						cout << "Enter your ID number\n";
 						cin >> id;
@@ -162,6 +158,7 @@ int main()
 						dvds[i].setBNumber(id);
 						cout << "have a fun with your dvd!\n";
 	 				}
+					}
 				}
 			}
 			else if(borrow == 2)
@@ -177,39 +174,35 @@ int main()
 				{
 					if(books[index].getTitle() == borrowedBook)
 					{
-						cout << "find the book!!";
-						thereIs = true;
+						if(books[index].getBorrowed())
+						{//ture = avaialbe
+							cout << "Enter your ID number\n";
+							cin >> id;
+							cin.ignore(50, '\n');
+							books[index].setBorrowed(false);
+							books[index].setBNumber(id);
+							cout << "hava fun with your book!!\n";
+						}
 					}
 				}
-				if(thereIs)
-				{
-					if(books[index].getBorrowed())
-					{//ture = avaialbe
-						cout << "Enter your ID number\n";
-						cin >> id;
-						cin.ignore(50, '\n');
-						books[index].setBorrowed(false);
-						books[index].setBNumber(id);
-						cout << "hava fun with your book!!\n";
-
-					}
-				}//if(thereIs)
 			}
 		}
 		else if(action == 4)
 		{//show book info
+			
 			cout << "\n----Books-----\n";
-			for(int n = 0; n < bookCapacity; n++)
+			for(int n = 0; n < bookitems; n++)
 			{
 				books[n].printAll(cout);
 				cout << "\n";
+				//n++;
 			}
 			cout <<"\n";
 		}
 		else if(action == 5)
 		{//show DVD info
 			cout << "\n----DVD----\n";
-			for(int n = 0; n < dvdCapacity; n++)
+			for(int n = 0; n < dvditems; n++)
 			{
 				dvds[n].printAll(cout);
 				cout << "\n" << "\n";
@@ -233,14 +226,14 @@ int main()
 				{
 					if(dvds[count].getTitle() == movieTitle)
 					{
-						cout << "Marina Cafe have the movie\n";
+						//cout << "Marina Cafe have the movie\n";
 						if(dvds[count].getBorrowed())
 						{//dvd is able to rent 
 							cout << "The dvd is avaialble now\n";
 						}
 						else
 						{
-							cout << "currently borrowed\n";
+							cout << "currently borrowed\nby :";
 							cout << dvds[count].getBNumber() << "\n";
 						}
 					}
@@ -260,13 +253,15 @@ int main()
 				{
 					if(books[counter].getTitle() == serchedBTitle)
 					{
-						cout << "Marina Cafe have the book\n";
+						
 						if(books[counter].getBorrowed())
 						{
+							cout << "Marina Cafe have the book\n";
 							cout << "the book is avaialble\n";
 						}
 						else
 						{
+							cout << "Marina Cafe have the book\n";
 							cout << "The book is not curretly avaialble\n";
 							cout << "Borrowed user: " << books[counter].getBNumber() <<"\n";
 						}
@@ -299,22 +294,14 @@ int main()
 				{
 					if(books[k].getTitle()==searchedTitle)
 					{
-						exisist = true; 
+						cout << "\n---Book---Information---\n";
+						books[k].printAll(cout);
+						cout << "\n";
 					}
 					else
 					{
-						exisist = false;
+						cout << "Cannot find the book\n";
 					}
-				}
-				if(exisist)
-				{
-					cout << "\n---Book---Information---\n";
-					books[k].printAll(cout);
-					cout << "\n";
-				}
-				else
-				{
-					cout << "Cannot find the book\n";
 				}
 			}
 			else if(choice == 2)
@@ -326,24 +313,15 @@ int main()
 				{
 					if(dvds[counting].getTitle() == searchedTitle)
 					{
-						exisist = true;
+						cout << "\n-----DVD---Infromation----\n";
+						dvds[counting].printAll(cout);
+						cout <<  "\n";
 					}
 					else
 					{
-						exisist = false;
+						cout << "Cannot find the DVD\n";
 					}
 				}
-				if(exisist)
-				{
-					cout << "\n-----DVD---Infromation----\n";
-					dvds[counting].printAll(cout);
-					cout <<  "\n";
-				}
-				else
-				{
-					cout << "Cannot find the DVD\n";
-				}
-
 			}
 			else
 			{
@@ -356,8 +334,8 @@ int main()
 			int i;
 			cout << "Enter authour name to look for\n";
 			getline(cin, author_name);
-			cout << "Books Wrritten by" << author_name << " \n";
-			for(i = 0; i < bookCapacity; i++)
+			cout << "Books Written by" << author_name << " \n";
+			for(i = 0; i < bookitems; i++)
 			{
 				if (books[i].getAuthor() == author_name)
 				{
@@ -366,7 +344,7 @@ int main()
 			}
 			if(i == bookCapacity)
 			{
-				cout << "books the author writes does not exisist\n";
+				cout << "books the author writes does not exists\n";
 			}
 
 		}
@@ -374,7 +352,7 @@ int main()
 		{//All information
 			cout << "All information\n";
 			cout << "Borrowed Book Information\n";
-			for(int walker = 0; walker < bookCapacity; walker++)
+			for(int walker = 0; walker < bookitems; walker++)
 			{
 				if(!books[walker].getBorrowed())
 				{
@@ -383,7 +361,7 @@ int main()
 				}
 			}
 			cout << "\nBorrowed DVD Information\n";
-			for(int walker = 0; walker < dvdCapacity; walker++)
+			for(int walker = 0; walker < dvditems; walker++)
 			{
 				cout << "Title: " <<  dvds[walker].getTitle() << "\n";
 				cout << "User; " << dvds[walker].getBNumber() << "\n\n";
